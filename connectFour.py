@@ -23,9 +23,13 @@ def main():
     # loop of the game
     while run:
         if turn == PLAYER1:
-            input("Player 1")
+            val = input("Player 1")
+            place(board, int(val), PLAYER1+1)
+            print(board)
         else:
-            input("Player 2")
+            val = input("Player 2")
+            place(board, int(val), PLAYER2 + 1)
+            print(board)
 
         turn = turn + 1
         turn = turn % 2
@@ -33,4 +37,4 @@ def main():
 
 board = create_board()
 print(board)
-# main()
+main()
