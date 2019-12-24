@@ -16,20 +16,24 @@ def place(board, col, player):
             board[i][col] = player
             break
 
+def reprint(board):
+    print(py.flip(board,0))
+
 
 def main():
     run = True
     turn = PLAYER1
+
     # loop of the game
     while run:
         if turn == PLAYER1:
             val = input("Player 1")
             place(board, int(val), PLAYER1+1)
-            print(board)
+            reprint(board)
         else:
             val = input("Player 2")
             place(board, int(val), PLAYER2 + 1)
-            print(board)
+            reprint(board)
 
         turn = turn + 1
         turn = turn % 2
