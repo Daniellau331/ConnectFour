@@ -2,8 +2,35 @@
 
 import numpy as py
 
+ROW = 6
+COL = 7
+PLAYER1 = 0
+PLAYER2 = 1
+# create a empty board
 def create_board():
-    return py.zeros((5,6))
+    return py.zeros((ROW, COL))
+
+def place(board, col, player):
+    for i in range(ROW):
+        if board[i][col] == 0:
+            board[i][col] = player
+            break
+
+
+def main():
+    run = True
+    turn = PLAYER1
+    # loop of the game
+    while run:
+        if turn == PLAYER1:
+            input("Player 1")
+        else:
+            input("Player 2")
+
+        turn = turn + 1
+        turn = turn % 2
+
 
 board = create_board()
 print(board)
+# main()
