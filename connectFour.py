@@ -17,7 +17,15 @@ def place(board, col, player):
             break
 
 def reprint(board):
-    print(py.flip(board,0))
+    print(py.flip(board, 0))
+
+def full_col(board, col):
+    if board[ROW-1][col] == 0:
+        return False
+    else:
+        return True
+
+
 
 
 def main():
