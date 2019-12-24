@@ -34,14 +34,19 @@ def main():
 
     # loop of the game
     while run:
+        # player 1
         if turn == PLAYER1:
-            val = input("Player 1")
-            place(board, int(val), PLAYER1+1)
-            reprint(board)
+            val = int(input("Player 1"))
+            if full_col(board, val) is False:
+                place(board, val, PLAYER1+1)
+                reprint(board)
+
+        # player 2
         else:
-            val = input("Player 2")
-            place(board, int(val), PLAYER2 + 1)
-            reprint(board)
+            val = int(input("Player 1"))
+            if full_col(board, val) is False:
+                place(board, val, PLAYER2 + 1)
+                reprint(board)
 
         turn = turn + 1
         turn = turn % 2
