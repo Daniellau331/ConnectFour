@@ -25,6 +25,25 @@ def full_col(board, col):
     else:
         return True
 
+# check whether this player won the game
+def win(board, player):
+    pass
+    # check vertical
+    for row in range(ROW-3):
+        for col in range(COL):
+            if board[row][col] == player and board[row+1][col] == player and board[row+2][col] == player and board[row+3][col] == player:
+                return True
+
+    # check horizontal
+    for col in range(COL-3):
+        for row in range(ROW):
+            if board[row][col] == player and board[row][col+1] == player and board[row][col+2] == player and board[row][col+3] == player:
+                return True
+
+    # check positively slope diagonals
+
+    # check negatively slope diagonals
+
 
 
 
@@ -40,6 +59,8 @@ def main():
             if full_col(board, val) is False:
                 place(board, val, PLAYER1+1)
                 reprint(board)
+
+
 
         # player 2
         else:
