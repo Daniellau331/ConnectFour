@@ -5,4 +5,4 @@ Trying to use python to create connect four.
 Trying to make the text version first before making the GUI version one.
 
 # GUI Version
-Try to make GUI version next
+Try to make GUI version next.
