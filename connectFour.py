@@ -27,7 +27,7 @@ def full_col(board, col):
 
 # check whether this player won the game
 def win(board, player):
-    pass
+
     # check vertical
     for row in range(ROW-3):
         for col in range(COL):
@@ -44,6 +44,8 @@ def win(board, player):
 
     # check negatively slope diagonals
 
+    return False
+
 
 
 
@@ -59,15 +61,20 @@ def main():
             if full_col(board, val) is False:
                 place(board, val, PLAYER1+1)
                 reprint(board)
-
+                if win(board,PLAYER1+1) is True:
+                    print("Player 1 won!")
+                    run = False
 
 
         # player 2
         else:
-            val = int(input("Player 1"))
+            val = int(input("Player 2"))
             if full_col(board, val) is False:
                 place(board, val, PLAYER2 + 1)
                 reprint(board)
+                if win(board,PLAYER2+1) is True:
+                    print("Player 2 won!")
+                    run = False
 
         turn = turn + 1
         turn = turn % 2
