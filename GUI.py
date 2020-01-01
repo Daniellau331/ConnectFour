@@ -14,8 +14,13 @@ PLAYER2 = 1
 
 UNIT = 100
 WIDTH = UNIT * COL
-HEIGHT =  UNIT * (ROW + 1)
+HEIGHT = UNIT * (ROW + 1)
 SIZE = (WIDTH, HEIGHT)
+
+BLUE = (0, 0, 255)
+BLACK = (0, 0, 0)
+YELLOW = (255, 255, 0)
+RED = (255, 0, 0)
 
 screen = pygame.display.set_mode(SIZE)
 
@@ -68,10 +73,14 @@ def win(board, player):
     return False
 
 def draw_board(board):
-    pass
+    for r in range(ROW):
+        for c in range(COL):
+            pygame.draw.rect(screen,BLUE,(c * UNIT,r * UNIT + UNIT, UNIT, UNIT))
+
 
 def game_loop():
     run = True
+    turn = PLAYER1
 
     while run:
         for event in pygame.event.get():
@@ -113,5 +122,7 @@ def main():
 
 pygame.init()
 board = create_board()
+draw_board(board)
+pygame.display.update()
 game_loop()
 main()
