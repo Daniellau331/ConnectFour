@@ -4,11 +4,21 @@ import numpy as py
 # connectFour.py
 
 import numpy as py
+import pygame
+import sys
 
 ROW = 6
 COL = 7
 PLAYER1 = 0
 PLAYER2 = 1
+
+UNIT = 100
+WIDTH = UNIT * COL
+HEIGHT =  UNIT * (ROW + 1)
+SIZE = (WIDTH, HEIGHT)
+
+screen = pygame.display.set_mode(SIZE)
+
 # create a empty board
 def create_board():
     return py.zeros((ROW, COL))
@@ -57,7 +67,18 @@ def win(board, player):
 
     return False
 
+def draw_board(board):
+    pass
 
+def game_loop():
+    run = True
+
+    while run:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                pass
 
 
 def main():
@@ -90,7 +111,7 @@ def main():
         turn = turn + 1
         turn = turn % 2
 
-
+pygame.init()
 board = create_board()
-print(board)
+game_loop()
 main()
